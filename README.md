@@ -1,7 +1,5 @@
 
 # Fake Galery
----
-
 ### This was a challenge from [B7WEB](https://b7web.com.br) course on react-router-dom(v6).
 
 Project Made with: 
