@@ -1,17 +1,9 @@
-import { Route, Routes, useRoutes } from "react-router-dom";
-import Album from "./pages/Album";
-import DashBoard from "./pages/DashBoard";
-import NotFound from "./pages/NotFound";
-import Photos from "./pages/Photos";
+import Album from "./Pages/Album";
+import Photos from "./Pages/PhotoBig";
+import NotFound from "./Pages/NotFound";
+import DashBoard from "./Pages/DashBoard";
+import { useRoutes } from "react-router-dom";
 
-// <>
-//   {/* <Routes>
-//     <Route path="/" element={<DashBoard />} />
-//     <Route path="/albums/:id" element={<Album />} />
-//     <Route path="/photos/:id" element={<Photos />} />
-//     <Route path="*" element={<NotFound />} />
-//   </Routes> */}
-// </>
 const RoutesList = () => {
   return useRoutes([
     { path: "/", element: <DashBoard /> },

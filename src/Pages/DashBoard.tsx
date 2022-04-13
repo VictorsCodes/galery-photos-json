@@ -1,18 +1,16 @@
+import { api } from "../Api";
 import { useEffect, useState } from "react";
-import { api } from "../api";
-import DashBoardItem from "../components/DashBoardItem";
-import { AlbumType } from "../types/AlbumsTypes";
+import { AlbumType } from "../Types/AlbumsTypes";
+import DashBoardItem from "../Components/DashBoardItem";
 
 const DashBoard = () => {
   const [albums, setAlbums] = useState<AlbumType[]>([]);
 
-  useEffect(() => {
-    LoadAlbums();
-  }, []);
-
-  const LoadAlbums = async () => {
+  const LoadAlbums = () => {
     api.get("/albums").then((response) => setAlbums(response.data));
   };
+
+  useEffect(() => LoadAlbums(), []);
 
   return (
     <>

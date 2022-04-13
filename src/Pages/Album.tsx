@@ -1,41 +1,35 @@
-import { api } from "../api";
-import { AlbumPhotoType } from "../types/AlbumPhotoType";
+import { api } from "../Api";
+import Button from "../Components/Button";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import AlbumPhotos from "../components/AlbumPhotos";
+import { useParams } from "react-router-dom";
+import AlbumPhotos from "../Components/AlbumPhotos";
+import { AlbumPhotoType } from "../Types/AlbumPhotoType";
 
 const Album = () => {
+  const { id } = useParams();
   const [albumTitle, setAlbumTitle] = useState<String>("");
   const [albumPhotos, setAlbumPhotos] = useState<AlbumPhotoType[]>([]);
-  const { id } = useParams();
 
-  const loadPhotos = () => {
+  const LoadPhotos = () => {
     api
       .get(`/albums/${id}/photos`)
       .then((response) => setAlbumPhotos(response.data));
   };
 
-  const loadAlbumTitle = () => {
+  const LoadAlbumTitle = () => {
     api
       .get(`/albums/${id}`)
       .then((response) => setAlbumTitle(response.data.title));
   };
 
   useEffect(() => {
-    loadAlbumTitle();
-    loadPhotos();
+    LoadPhotos();
+    LoadAlbumTitle();
   }, []);
-
-  const navigate = useNavigate();
 
   return (
     <div>
-      <button
-        onClick={() => navigate(-1)}
-        className="bg-slate-200 hover:bg-slate-300 rounded py-3 px-5 text-slate-900 mt-2"
-      >
-        Voltar
-      </button>
+      <Button />
       <div className="bg-slate-900 mt-2 rounded flex flex-col">
         <h1 className="text-white px-7 pt-1">
           <span className="text-yellow-700 block">Album: #{id}</span>

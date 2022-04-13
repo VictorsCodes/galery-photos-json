@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AlbumType } from "../types/AlbumsTypes";
+import { AlbumType } from "../Types/AlbumsTypes";
 
 type DashBoardItemProps = {
   data: AlbumType;
