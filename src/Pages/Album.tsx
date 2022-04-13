@@ -35,7 +35,7 @@ const Album = () => {
           <span className="text-yellow-700 block">Album: #{id}</span>
           {albumTitle.toUpperCase()}
         </h1>
-        <div className="grid sm:grid-cols-3 md:grid-cols-6 place-items-center sm:gap-5 md:gap-10 mt-10">
+        <div className="grid grid-cols-2 gap-4 px-2 sm:grid-cols-3 md:grid-cols-6 place-items-center sm:gap-5 md:gap-10 mt-10">
           {albumPhotos.map((photo, index) => (
             <AlbumPhotos data={photo} key={index} />
           ))}
